@@ -36,19 +36,22 @@ const shuffleOptions = (options) => {
       <div
         v-for="(question, index) in quizQuestions"
         :key="index"
-        class="border p-5 border-dashed rounded-lg"
+        class="border p-5 border-dashed rounded-lg flex flex-col space-y-5"
       >
-        <h2>{{ index + 1 }}. <span v-html="question.question"></span></h2>
+        <h2 class="text-2xl">
+          {{ index + 1 }}. <span v-html="question.question"></span>
+        </h2>
         <ul>
-          <label class="flex space-x-4">
+          <label class="flex flex-col space-y-4">
             <li
+              class="flex space-x-3"
               v-for="(option, index) in shuffleOptions(
                 question.incorrect_answers.concat(question.correct_answer)
               )"
               :key="option"
             >
-              <input type="radio" />
-              <span v-html="option"></span>
+              <input class="w-5" type="radio" name="option" />
+              <span class="text-2xl" v-html="option"></span>
             </li>
           </label>
         </ul>
