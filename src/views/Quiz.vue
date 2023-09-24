@@ -31,7 +31,23 @@ const shuffleOptions = (options) => {
 
 <template>
   <section>
-    <h1 class="text-5xl text-center mt-10 font-bold">Quiz</h1>
+    <h1 class="text-5xl text-center mt-10 font-bold">
+      {{
+        quizQuestions.length > 0 && quizQuestions[0].category
+          ? quizQuestions[0].category.replace(/^(Entertainment: |Science:)\s*/, "") +
+            " Quiz"
+          : "Quiz"
+      }}
+    </h1>
+    <!-- I want to sticky display this div on the top  -->
+    <div
+      class="flex justify-between items-center mt-10 text-2xl font-medium sticky top-0 bg-white p-5"
+    >
+      <p>Total Questions: {{ quizQuestions.length }}</p>
+      <p>Total Marks: {{ quizQuestions.length }}</p>
+      <p>Total Time: {{ quizQuestions.length }} Minutes</p>
+    </div>
+
     <div class="grid grid-cols-1 gap-10 mt-16">
       <div
         v-for="(question, index) in quizQuestions"
@@ -41,19 +57,19 @@ const shuffleOptions = (options) => {
         <h2 class="text-2xl">
           {{ index + 1 }}. <span v-html="question.question"></span>
         </h2>
-        <ul>
-          <label class="flex flex-col space-y-4">
-            <li
-              class="flex space-x-3"
-              v-for="(option, index) in shuffleOptions(
-                question.incorrect_answers.concat(question.correct_answer)
-              )"
-              :key="option"
-            >
-              <input class="w-5" type="radio" name="option" />
+        <ul class="">
+          <li
+            class=""
+            v-for="(option, index) in shuffleOptions(
+              question.incorrect_answers.concat(question.correct_answer)
+            )"
+            :key="option"
+          >
+            <label class="flex items-center">
+              <input class="w-5 h-5 mr-2" type="radio" name="option" />
               <span class="text-2xl" v-html="option"></span>
-            </li>
-          </label>
+            </label>
+          </li>
         </ul>
       </div>
     </div>
