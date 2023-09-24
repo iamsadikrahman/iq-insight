@@ -85,7 +85,6 @@ const startQuiz = () => {
         </label>
       </div>
     </div>
-    <p>{{ selectedOption }}</p>
     <button
       type="button"
       @click="startQuiz"
