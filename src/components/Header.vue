@@ -10,7 +10,6 @@
     >
     <ul class="flex space-x-10 text-2xl font-semibold">
       <router-link to="/"><li>Home</li></router-link>
-      <router-link to="/quiz"><li>Quiz</li></router-link>
       <router-link to="/about"><li>About</li></router-link>
       <router-link to="/contact"><li>Contact</li></router-link>
     </ul>

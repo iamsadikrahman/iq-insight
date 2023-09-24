@@ -48,7 +48,7 @@ const shuffleOptions = (options) => {
               :key="option"
             >
               <input type="radio" />
-              {{ option }}
+              <span v-html="option"></span>
             </li>
           </label>
         </ul>
