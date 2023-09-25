@@ -77,7 +77,7 @@ const startQuiz = () => {
             v-model="selectedOption"
           />
           <div>
-            <h4>{{ quizType.name }}</h4>
+            <h4 class="font-semibold text-2xl">{{ quizType.name }}</h4>
             <p>Total Questions: {{ quizType.totalQuestions }}</p>
             <p>Total Time: {{ quizType.time }} Minutes</p>
             <p>Total Marks: {{ quizType.totalMarks }}</p>
