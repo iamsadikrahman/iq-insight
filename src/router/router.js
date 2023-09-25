@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import Quiz from '../views/Quiz.vue'
 import StartQuiz from '../views/StartQuiz.vue'
+import QuizResult from '../views/QuizResult.vue'
 
 const routes = [
     {
@@ -28,6 +29,14 @@ const routes = [
         path: '/:categoryId/quiz/:questionsLimit',
         component: Quiz,
         name: 'quiz'
+    },
+    {
+        path: '/quiz-result',
+        component: QuizResult,
+        name: 'QuizResult',
+        props: (route) => ({
+            quizQuestions: route.query.quizQuestions,
+          }),
     }
 ]
 
